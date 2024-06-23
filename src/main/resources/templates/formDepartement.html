@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="home.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Nouvelle Departement </title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card">
+                <div class="card-header">Nouvelle Departement </div>
+                <div class="card-body">
+                    <div class="p-9">
+        <form method="post" th:action="@{saveDepartement}">
+            <div class="mb-2">
+                <label for="nom" class="form-label">Nom:</label>
+                <input type="text" class="form-control" id="nom" placeholder="Nom" name="nom">
+                <span class="text-danger" th:errors="${departement.nom}" th:value="${departement.nom}"></span>
+            </div>
+            <div class="mb-2">
+                <label for="reference" class="form-label">Reference:</label>
+                <input type="text" class="form-control" id="reference" placeholder="Reference "
+                       name="reference" th:value="${departement.reference}">
+            </div>
+            <div class="mb-2">
+                <label for="description" class="form-label">Description:</label>
+                <input type="text" class="form-control" id="description" placeholder="Description"
+                       name="description" th:value="${departement.description}">
+                <span class="text-danger" th:errors="${departement.description}" th:value="${departement.description}"></span>
+            </div>
+            <div class="mb-2">
+                <label for="chef" class="form-label">Chef:</label>
+                <input type="text" class="form-control" id="chef" placeholder="chef"
+                       name="chef" th:value="${departement.chef}">
+                <span class="text-danger" th:errors="${departement.chef}" th:value="${departement.chef}"></span>
+            </div>
+            <div class="mb-2">
+                <label for="detail" class="form-label">Detail:</label>
+                <input type="text" class="form-control" id="detail" placeholder="detail"
+                       name="detail" th:value="${departement.detail}">
+                <span class="text-danger" th:errors="${departement.detail}" th:value="${departement.detail}"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="home.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Nouveau Etudiant</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card">
+                <div class="card-header">Nouveau Etudiant </div>
+                <div class="card-body">
+                    <div class="p-9">
+                        <form method="post" th:action="@{saveEtudiant}">
+            <div class="mb-2">
+                <label for="nom" class="form-label">Nom:</label>
+                <input type="text" class="form-control" id="nom" placeholder="Nom" name="nom" th:value="${etudiant.nom}">
+            </div>
+            <div class="mb-2">
+                <label for="prenom" class="form-label">Prenom:</label>
+                <input type="text" class="form-control" id="prenom" placeholder="prenom "
+                       name="prenom" th:value="${etudiant.prenom}">
+            </div>
+            <div class="mb-2">
+                <label for="adresse" class="form-label">Adress:</label>
+                <input type="text" class="form-control" id="adresse" placeholder="adresse "
+                       name="adresse" th:value="${etudiant.adresse}">
+            </div>
+            <div class="mb-2">
+                <label for="nomLycée" class="form-label">NomLycée:</label>
+                <input type="text" class="form-control" id="nomLycée" placeholder="nomLycée "
+                       name="nomLycée" th:value="${etudiant.nomLycée}">
+            </div>
+            <div class="mb-2">
+                <label for="cne" class="form-label">CNE:</label>
+                <input type="text" class="form-control" id="cne" placeholder="cne"
+                       name="cne" th:value="${etudiant.cne}">
+            </div>
+            <div class="mb-2">
+                <label for="cin" class="form-label">CNI:</label>
+                <input type="text" class="form-control" id="cin" placeholder="cin"
+                       name="cin" th:value="${etudiant.cin}">
+                <span class="text-danger" th:errors="${etudiant.cin}" th:value="${etudiant.cin}"></span>
+            </div>
+            <div class="mb-2">
+                <label for="dateNaissance" class="form-label">DateNaissance:</label>
+                <input type="date" class="form-control" id="dateNaissance" placeholder="dateNaissance"
+                       name="dateNaissance" th:value="${etudiant.dateNaissance}">
+                <span class="text-danger" th:errors="${etudiant.dateNaissance}" th:value="${etudiant.dateNaissance}"></span>
+            </div>
+            <div class="mb-2">
+                <label for="moyenneBac" class="form-label">MoyenneBac:</label>
+                <input type="text" class="form-control" id="moyenneBac" placeholder="moyenneBac"
+                       name="moyenneBac" th:value="${etudiant.moyenneBac}">
+                <span class="text-danger" th:errors="${etudiant.moyenneBac}" th:value="${etudiant.moyenneBac}"></span>
+            </div>
+            <div class="mb-2">
+                <label for="anneeBac" class="form-label">AnneeBac:</label>
+                <input type="text" class="form-control" id="anneeBac" placeholder="anneeBac"
+                       name="anneeBac" th:value="${etudiant.anneeBac}">
+                <span class="text-danger" th:errors="${etudiant.anneeBac}" th:value="${etudiant.anneeBac}"></span>
+            </div>
+            <div class="mb-2">
+                <label for="email" class="form-label">Email:</label>
+                <input type="text" class="form-control" id="email" placeholder="email"
+                       name="email" th:value="${etudiant.email}">
+                <span class="text-danger" th:errors="${etudiant.email}" th:value="${etudiant.email}"></span>
+            </div>
+            <div class="mb-2">
+                <label for="telephone" class="form-label">Telephone:</label>
+                <input type="text" class="form-control" id="telephone" placeholder="telephone"
+                       name="telephone" th:value="${etudiant.telephone}">
+                <span class="text-danger" th:errors="${etudiant.telephone}" th:value="${etudiant.telephone}"></span>
+            </div>
+            <div class="mb-2">
+                <label for="imageBac" class="form-label">ImageBac:</label>
+                <input type="file" class="form-control" id="imageBac" placeholder="imageBac"
+                       name="imageBac" th:value="${etudiant.imageBac}" accept="image/png, image/jpeg">
+                <span class="text-danger" th:errors="${etudiant.imageBac}" th:value="${etudiant.imageBac}"></span>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

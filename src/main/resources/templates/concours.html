@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="home.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>Concours</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="p-5">
+        <div class="card">
+            <div class="card-header">Liste des concours</div>
+            <div class="card-body">
+                <form method="get" th:href="@{Concours}">
+                    <ul class="nav nav-pills">
+                        <li>
+                            <label class="form-label">Keyword:</label>
+                        </li>
+                        <li>
+                            <input type="text" class="form-control" name="keyword">
+                        </li>
+                        <li>
+                            <button class="btn btn-info">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">EtudiantAdmisOrale</th>
+                        <th scope="col">EtudiantAdmisEcrit</th>
+                        <th scope="col">EtudiantAdmis</th>
+                        <th scope="col">Annee</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="p:${listConcours}">
+                        <td th:text="${p.id}"></td>
+                        <td th:text="${p.nom}"></td>
+                        <td th:text="${p.reference}"></td>
+                        <td th:text="${p.description}"></td>
+                        <td th:text="${p.nbreEtudiantAdmisOrale}"></td>
+                        <td th:text="${p.nbreEtudiantAdmisEcrit}"></td>
+                        <td th:text="${p.nbreEtudiantAdmis}"></td>
+                        <td th:text="${p.annee}"></td>
+                        <td>
+                            <a onclick="return confirm('Etes vous sûre?')" class="btn btn-danger"
+                               th:href="@{deleteConcours(id=${p.id}, keyword=${keyword}, page=${currentPage})}">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a  class="btn btn-success"
+                                th:href="@{editConcours(id=${p.id})}">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                <ul class="nav nav-pills">
+                    <li th:each="value,item:${pages}">
+                        <a th:href="@{/Concours(page=${item.index},Keyword=${Keyword})}"
+                           th:class="${(currentPage==item.index)?'btn btn-info ms-1':'btn btn-outline-info ms-1'}"
+                           th:text="${item.index}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

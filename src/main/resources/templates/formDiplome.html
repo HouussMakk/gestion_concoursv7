@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="home.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Nouveau diplome </title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card">
+                <div class="card-header">Nouveau diplome</div>
+                <div class="card-body">
+                    <div class="p-9">
+                        <form method="post" th:action="@{saveDiplome}">
+                            <div class="mb-2">
+                                <label for="nom" class="form-label">Nom:</label>
+                                <input type="text" class="form-control" id="nom" placeholder="Nom" name="nom" th:value="${diplome.nom}">
+                            </div>
+                            <div class="mb-2">
+                                <label for="libelle" class="form-label">Libelle:</label>
+                                <input type="text" class="form-control" id="libelle" placeholder="Libelle" name="libelle" th:value="${diplome.libelle}">
+                            </div>
+                            <div class="mb-2">
+                                <label for="description" class="form-label">Description:</label>
+                                <input type="text" class="form-control" id="description" placeholder="Description" name="description" th:value="${diplome.description}">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="home.html"
+>
+<head>
+  <meta charset="UTF-8">
+  <title>Nouvelle Filiere </title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <div class="card">
+        <div class="card-header">Nouvelle Filiere </div>
+        <div class="card-body">
+          <div class="p-9">
+            <form method="post" th:action="@{saveFiliere}">
+              <div class="mb-2">
+                <label for="nom" class="form-label">Nom:</label>
+                <input type="text" class="form-control" id="nom" placeholder="Nom" name="nom">
+                <span class="text-danger" th:errors="${filiere.nom}" th:value="${filiere.nom}"></span>
+              </div>
+              <div class="mb-2">
+                <label for="libelle" class="form-label">Libelle:</label>
+                <input type="text" class="form-control" id="libelle" placeholder="Libelle" name="libelle">
+                <span class="text-danger" th:errors="${filiere.libelle}" th:value="${filiere.libelle}"></span>
+              </div>
+              <div class="mb-2">
+                <label for="responsable" class="form-label">Responsable:</label>
+                <input type="text" class="form-control" id="responsable" placeholder="Responsable "
+                       name="responsable" th:value="${filiere.responsable}">
+              </div>
+              <div class="mb-2">
+                <label for="description" class="form-label">Description:</label>
+                <input type="text" class="form-control" id="description" placeholder="Description"
+                       name="description" th:value="${filiere.description}">
+                <span class="text-danger" th:errors="${filiere.description}" th:value="${filiere.description}"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
